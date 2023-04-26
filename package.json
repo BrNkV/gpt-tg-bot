@@ -1,0 +1,30 @@
+{
+  "name": "gpt-tg-bot",
+  "version": "1.0.0",
+  "description": "bot for using personal gpt-chat API key in telegram",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./src/main.js",
+    "start": "node ./src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrNkV/gpt-tg-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrNkV/gpt-tg-bot/issues"
+  },
+  "homepage": "https://github.com/BrNkV/gpt-tg-bot#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "config": "^3.3.9",
+    "telegraf": "^4.12.2"
+  }
+}
