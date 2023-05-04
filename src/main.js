@@ -27,9 +27,13 @@ bot.on(message('voice'), async (ctx) => {
     const userId = String(ctx.message.from.id);
 
     // тестим работу ogg конвертера
+    // путь до ogg
     const oggPath = await ogg.create(link.href, userId);
+    // используем метод конвертации и передаем путь файла ogg
+    const mp3Path = await ogg.toMp3(oggPath, userId);
 
-    await ctx.reply(JSON.stringify(link, null, 2));
+    // ответ бота
+    await ctx.reply(mp3Path);
   } catch (e) {
     console.log('Error while voice message', e.message);
   }

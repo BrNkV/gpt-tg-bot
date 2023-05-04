@@ -132,5 +132,6 @@ dist
 # config file
 default.json
 
-# ogg files
+# ogg+mp3 files
 *.ogg
+*.mp3

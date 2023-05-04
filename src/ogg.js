@@ -1,6 +1,11 @@
 // работа с аудио файлом (перевод в другой формат)
 
+import { rejects } from 'assert';
 import axios from 'axios';
+// ядро кодеков
+import ffmpeg from 'fluent-ffmpeg';
+// установщик конвертера
+import installer from '@ffmpeg-installer/ffmpeg';
 import { createWriteStream } from 'fs';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -11,9 +16,36 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 class OggConverter {
-  constructor() {}
+  constructor() {
+    // настройка пути до конвертера
+    ffmpeg.setFfmpegPath(installer.path);
+  }
 
-  toMp3() {}
+  /** конвертируем в мп3
+   * input - название входного файла
+   * output - выходной файл
+   */
+  toMp3(input, output) {
+    try {
+      // получим выходной путь
+      const outputPath = resolve(dirname(input), `${output}.mp3`);
+
+      // работа с кодеками
+      return new Promise((resolve, reject) => {
+        // логика трансформации ogg => mp3
+
+        // принимает input = ogg file
+        ffmpeg(input)
+          .inputOption('-t 30')
+          .output(outputPath)
+          .on('end', () => resolve(outputPath))
+          .on('error', (err) => reject(err.message))
+          .run();
+      });
+    } catch (e) {
+      console.log('Error while creating mp3 file', e.message);
+    }
+  }
 
   /**
    * url - хранения файла
