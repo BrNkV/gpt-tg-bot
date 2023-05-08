@@ -9,6 +9,8 @@ import installer from '@ffmpeg-installer/ffmpeg';
 import { createWriteStream } from 'fs';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
+// обязательно импорт модуля с расширением ".js" иначе ошибка
+import { removeFile } from './utils.js';
 
 //настройка работы с путями
 //определим __dirname (т.к. работаем с import / export es6)
@@ -38,7 +40,10 @@ class OggConverter {
         ffmpeg(input)
           .inputOption('-t 30')
           .output(outputPath)
-          .on('end', () => resolve(outputPath))
+          .on('end', () => {
+            removeFile(input);
+            resolve(outputPath);
+          })
           .on('error', (err) => reject(err.message))
           .run();
       });

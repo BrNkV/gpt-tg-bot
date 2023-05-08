@@ -8,6 +8,8 @@ import config from 'config';
 
 import { ogg } from './ogg.js';
 
+import { openai } from './openai.js';
+
 //создаем бота (принимает токен телеги)
 const bot = new Telegraf(config.get('TELEGRAM_TOKEN'));
 
@@ -31,6 +33,11 @@ bot.on(message('voice'), async (ctx) => {
     const oggPath = await ogg.create(link.href, userId);
     // используем метод конвертации и передаем путь файла ogg
     const mp3Path = await ogg.toMp3(oggPath, userId);
+
+    // получаем текст (обработка openAi - принимает к обработке наш мп3)
+    const text = await openai.transcription(mp3Path);
+    // затем openai определенный текст передаст в чат
+    const response = await openai.chat(text);
 
     // ответ бота
     await ctx.reply(mp3Path);
