@@ -1,3 +1,4 @@
 {
-    "TELEGRAM_TOKEN":"input your telegram token"
+    "TELEGRAM_TOKEN":"input your telegram token",
+    "OPENAI_KEY": "input your OpenAI token"
 }
