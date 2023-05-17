@@ -1,5 +1,6 @@
 {
-    "TELEGRAM_TOKEN":"input your dev telegram token",
-    "OPENAI_KEY": "input your dev OpenAI token",
-    "ASSEMBLYAI": "input your dev ASSEMBLYAI token
+  "TELEGRAM_TOKEN":"input your dev telegram token",
+  "OPENAI_KEY": "input your dev OpenAI token",
+  "ASSEMBLYAI": "input your dev ASSEMBLYAI token",
+  "TEST_ENV": "dev"
 }
