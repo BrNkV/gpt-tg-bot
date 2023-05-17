@@ -13,6 +13,8 @@ import { ogg } from './ogg.js';
 
 import { openai } from './openai.js';
 
+console.log(config.get('TEST_ENV'))
+
 // для каждого пользователя своя сессия
 const INITIAL_SESSION = {
   message: [],

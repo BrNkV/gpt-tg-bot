@@ -1,5 +1,5 @@
 {
-    "TELEGRAM_TOKEN":"input your telegram token",
-    "OPENAI_KEY": "input your OpenAI token",
-    "ASSEMBLYAI": "input your ASSEMBLYAI token
+    "TELEGRAM_TOKEN":"input your dev telegram token",
+    "OPENAI_KEY": "input your dev OpenAI token",
+    "ASSEMBLYAI": "input your dev ASSEMBLYAI token
 }

@@ -1,0 +1,6 @@
+{
+  "TELEGRAM_TOKEN": "input your prod telegram token",
+  "OPENAI_KEY": "input your prod OpenAI token",
+  "ASSEMBLYAI": "input your prod ASSEMBLYAI token",
+  "TEST_ENV": "prod"
+}
